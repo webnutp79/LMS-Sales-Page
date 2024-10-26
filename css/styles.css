@@ -1,3 +1,13 @@
+/* *********** CSS Variables *********** */
+:root {
+  --main-white: rgb(255, 255, 255);
+  --main-black: rgb(13, 12, 23);
+  --main-gray: rgb(107, 107, 107);
+  --main-darkgreen: rgb(16, 183, 90);
+  --main-lightgreen: rgb(6, 180, 83);
+  --bg-light: rgb(240, 240, 240);
+}
+
 /* *********** CSS reset *********** */
 html {
   box-sizing: border-box;
@@ -25,14 +35,24 @@ a {
 body {
   font-family: "Quicksand", "Arial", sans-serif;
   font-weight: 400;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   line-height: 1.25;
+  color: var(--main-gray);
+  background-color: var(--bg-light);
 }
 
 h2 {
-  font-size: 2.5rem;
+  font-size: 2.8rem;
+  font-style: italic;
+}
+
+h3 {
+  font-size: 2.3rem;
+}
+
+h2,
+h3 {
   font-weight: 600;
-  /* text-align: center; */
 }
 
 .action-buttons {
@@ -41,15 +61,38 @@ h2 {
 }
 
 .btn {
+  font-weight: 600;
+  color: var(--main-white);
+  background-color: var(--main-gray);
+  padding: 1rem 2rem;
+  border: 3px solid var(--main-gray);
+  border-radius: 5px;
+  text-align: center;
+}
+
+.btn:hover {
+  color: var(--main-gray);
+  background-color: var(--main-white);
+  transform: scale(1.1);
 }
 
 .btn-primary {
+  background-color: var(--main-lightgreen);
+  border: 3px solid var(--main-lightgreen);
 }
 
-.card {
-  border: 3px solid black;
-  border-radius: 5px;
-  padding: 2rem;
+.btn-primary:hover,
+.pricing-container .card:hover .btn-primary {
+  color: var(--main-darkgreen);
+  background-color: var(--main-white);
+}
+
+.btn,
+.btn-primary,
+.pricing-container .card:hover,
+.nav-link,
+.footer-link {
+  transition: 0.3s ease;
 }
 
 /* *********** HEADER *********** */
@@ -64,7 +107,7 @@ h2 {
   position: fixed;
   top: 0;
   left: 0;
-  background-color: yellow;
+  background-color: var(--main-black);
   padding: 0 4rem;
 }
 
@@ -72,13 +115,19 @@ h2 {
   height: 100%;
   display: flex;
   /* justify-content: center; */
-  align-items: center;
+  /* align-items: center; */
   gap: 3rem;
 }
 
-/* .nav-link {
-  padding: 1rem;
-} */
+.nav-link {
+  color: var(--main-white);
+  /* font-size: 2rem; */
+  font-weight: 600;
+}
+
+.nav-link:hover {
+  color: var(--main-darkgreen);
+}
 
 /* *********** MAIN *********** */
 main {
@@ -102,8 +151,13 @@ main {
 
 h1 {
   width: 500px;
+  color: var(--main-black);
   font-size: 4rem;
   font-weight: 600;
+}
+
+.section-banner p {
+  font-size: 2.2rem;
 }
 
 /* *********** Video & Testimonials & Pricing *********** */
@@ -119,38 +173,126 @@ h1 {
 .section-video,
 .section-testimonials,
 .section-pricing {
-  padding: 4rem;
+  padding: 0 4rem 8rem;
   align-items: center;
 }
 
 /* *********** Video & Testimonials *********** */
 .section-video,
 .section-testimonials {
-  background-color: aqua;
+  background-color: var(--main-black);
 }
 
-/* *********** Video & Testimonials & Pricing *********** */
+.section-video h2,
+.section-testimonials h2 {
+  color: var(--main-white);
+}
+
+/* *********** Testimonials & Pricing *********** */
 .testimonials-container,
 .pricing-container {
   display: flex;
   gap: 8rem;
 }
 
+.card {
+  background-color: var(--main-white);
+  padding: 2rem;
+  /* border: 3px solid var(--main-gray); */
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* *********** Video & Pricing *********** */
+.section-video,
+.section-pricing {
+  padding-top: 12rem;
+}
+
 /* *********** Testimonials *********** */
+.section-testimonials {
+  padding-top: 4rem;
+}
+
 .testimonials-container .card {
   width: 300px;
-  height: 200px;
+  height: 250px;
+}
+
+.testimonials-container .card p:last-child {
+  color: var(--main-black);
+  font-size: 2rem;
+  font-weight: 500;
 }
 
 /* *********** Pricing *********** */
+.section-pricing h2 {
+  color: var(--main-black);
+}
+
+.section-pricing > p {
+  color: var(--main-darkgreen);
+  font-size: 2rem;
+  font-weight: 600;
+  font-style: italic;
+}
+
 .pricing-container .card {
   width: 300px;
-  height: 200px;
+  height: 450px;
+}
+
+.pricing-container .card h3 {
+  color: var(--main-black);
+}
+
+.pricing-container .card p:nth-child(2) {
+  height: 65px;
+}
+
+.price-tag {
+  color: var(--main-black);
+  font-size: 2.3rem;
+  font-weight: 600;
+}
+
+.feature-items {
+  border-top: 1px solid var(--main-gray);
+  padding-top: 2rem;
+}
+
+.feature-item {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.feature-item::before {
+  content: url(../assets/images/circle-check-solid-lightgreen.svg);
+  width: 2rem;
+  height: 2rem;
+}
+
+.pricing-container .card:hover,
+.pricing-container .card:hover h3,
+.pricing-container .card:hover .price-tag {
+  color: var(--main-white);
+}
+
+.pricing-container .card:hover {
+  background-color: var(--main-lightgreen);
+}
+
+.pricing-container .card:hover .feature-item::before {
+  content: url(../assets/images/circle-check-solid-white.svg);
 }
 
 /* *********** FOOTER *********** */
 .footer-container {
-  background-color: gray;
+  color: var(--main-white);
+  background-color: var(--main-black);
   padding: 4rem;
   display: flex;
   justify-content: space-around;
@@ -164,9 +306,23 @@ h1 {
 }
 
 .footer-menu {
-  gap: 2.5rem;
+  gap: 1.3rem;
+}
+
+.footer-menu h3 {
+  font-size: 1.8rem;
 }
 
 .footer-items {
-  gap: 1.5rem;
+  gap: 0.5rem;
+}
+
+.footer-link {
+  color: inherit;
+  font-size: 1.4rem;
+  font-weight: 200;
+}
+
+.footer-link:hover {
+  color: var(--main-darkgreen);
 }
